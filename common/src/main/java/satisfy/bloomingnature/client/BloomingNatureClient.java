@@ -6,15 +6,18 @@ import dev.architectury.registry.client.rendering.ColorHandlerRegistry;
 import dev.architectury.registry.client.rendering.RenderTypeRegistry;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.minecraft.client.model.BoatModel;
+import net.minecraft.client.model.ChestBoatModel;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.level.FoliageColor;
 import satisfy.bloomingnature.client.model.TermiteModel;
 import satisfy.bloomingnature.client.model.WanderingGardenerModel;
-import satisfy.bloomingnature.client.render.entity.TermiteRenderer;
 import satisfy.bloomingnature.client.render.entity.WanderingGardenerRenderer;
 import satisfy.bloomingnature.registry.EntityRegistry;
 import satisfy.bloomingnature.registry.ObjectRegistry;
+import satisfy.bloomingnature.registry.boat.ModBoatRenderer;
+import satisfy.bloomingnature.registry.boat.BoatModelLayers;
 
 @Environment(EnvType.CLIENT)
 public class BloomingNatureClient {
@@ -73,12 +76,32 @@ public class BloomingNatureClient {
 
     public static void registerEntityRenderers() {
         EntityRendererRegistry.register(EntityRegistry.WANDERING_GARDENER, WanderingGardenerRenderer::new);
-        EntityRendererRegistry.register(EntityRegistry.TERMITE, TermiteRenderer::new);
+        EntityRendererRegistry.register(EntityRegistry.MOD_BOAT, pContext -> new ModBoatRenderer(pContext, false));
+        EntityRendererRegistry.register(EntityRegistry.MOD_CHEST_BOAT, pContext -> new ModBoatRenderer(pContext, true));
     }
 
     public static void registerEntityModelLayer() {
         EntityModelLayerRegistry.register(WanderingGardenerModel.LAYER_LOCATION, WanderingGardenerModel::getTexturedModelData);
         EntityModelLayerRegistry.register(TermiteModel.LAYER_LOCATION, TermiteModel::getTexturedModelData);
+
+        EntityModelLayerRegistry.register(BoatModelLayers.ASPEN_BOAT_LAYER, BoatModel::createBodyModel);
+        EntityModelLayerRegistry.register(BoatModelLayers.ASPEN_CHEST_BOAT_LAYER, ChestBoatModel::createBodyModel);
+        EntityModelLayerRegistry.register(BoatModelLayers.LARCH_BOAT_LAYER, BoatModel::createBodyModel);
+        EntityModelLayerRegistry.register(BoatModelLayers.LARCH_CHEST_BOAT_LAYER, ChestBoatModel::createBodyModel);
+        EntityModelLayerRegistry.register(BoatModelLayers.SWAMP_BOAT_LAYER, BoatModel::createBodyModel);
+        EntityModelLayerRegistry.register(BoatModelLayers.SWAMP_CHEST_BOAT_LAYER, ChestBoatModel::createBodyModel);
+        EntityModelLayerRegistry.register(BoatModelLayers.BAOBAB_BOAT_LAYER, BoatModel::createBodyModel);
+        EntityModelLayerRegistry.register(BoatModelLayers.BAOBAB_CHEST_BOAT_LAYER, ChestBoatModel::createBodyModel);
+        EntityModelLayerRegistry.register(BoatModelLayers.FAN_BOAT_LAYER, BoatModel::createBodyModel);
+        EntityModelLayerRegistry.register(BoatModelLayers.FAN_CHEST_BOAT_LAYER, ChestBoatModel::createBodyModel);
+        EntityModelLayerRegistry.register(BoatModelLayers.FIR_BOAT_LAYER, BoatModel::createBodyModel);
+        EntityModelLayerRegistry.register(BoatModelLayers.FIR_CHEST_BOAT_LAYER, ChestBoatModel::createBodyModel);
+        EntityModelLayerRegistry.register(BoatModelLayers.SWAMP_CYPRESS_BOAT_LAYER, BoatModel::createBodyModel);
+        EntityModelLayerRegistry.register(BoatModelLayers.SWAMP_CYPRESS_CHEST_BOAT_LAYER, ChestBoatModel::createBodyModel);
+        EntityModelLayerRegistry.register(BoatModelLayers.CHESTNUT_BOAT_LAYER, BoatModel::createBodyModel);
+        EntityModelLayerRegistry.register(BoatModelLayers.CHESTNUT_CHEST_BOAT_LAYER, ChestBoatModel::createBodyModel);
+        EntityModelLayerRegistry.register(BoatModelLayers.EBONY_BOAT_LAYER, BoatModel::createBodyModel);
+        EntityModelLayerRegistry.register(BoatModelLayers.EBONY_CHEST_BOAT_LAYER, ChestBoatModel::createBodyModel);
     }
 }
 

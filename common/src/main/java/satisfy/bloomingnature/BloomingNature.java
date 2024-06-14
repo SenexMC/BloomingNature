@@ -5,6 +5,7 @@ import dev.architectury.hooks.item.tool.AxeItemHooks;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import satisfy.bloomingnature.registry.*;
+import satisfy.bloomingnature.registry.boat.BoatRegistry;
 import satisfy.bloomingnature.util.BloomingNatureIdentifier;
 
 public class BloomingNature {
@@ -15,6 +16,7 @@ public class BloomingNature {
         DataFixerRegistry.init();
         ObjectRegistry.init();
         BoatsAndSignsRegistry.init();
+        BoatRegistry.init();
         EntityRegistry.init();
         TabRegistry.init();
         PlacerTypesRegistry.init();
